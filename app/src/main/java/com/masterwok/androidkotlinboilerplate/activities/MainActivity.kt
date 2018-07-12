@@ -1,12 +1,12 @@
 package com.masterwok.androidkotlinboilerplate.activities
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatButton
 import android.util.Log
 import com.masterwok.androidkotlinboilerplate.R
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     private var buttonClickMe: AppCompatButton? = null;
 
