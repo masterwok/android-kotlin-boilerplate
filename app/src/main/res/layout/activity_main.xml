@@ -7,4 +7,18 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textview_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:textColor="@android:color/black"
+        android:textSize="60sp"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/button_click_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_click_me"/>
+
 </LinearLayout>
