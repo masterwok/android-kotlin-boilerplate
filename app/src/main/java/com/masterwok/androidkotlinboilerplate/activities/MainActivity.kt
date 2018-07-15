@@ -1,32 +1,15 @@
 package com.masterwok.androidkotlinboilerplate.activities
 
 import android.os.Bundle
-import android.support.v7.widget.AppCompatButton
-import android.util.Log
 import com.masterwok.androidkotlinboilerplate.R
-import dagger.android.support.DaggerAppCompatActivity
+import com.masterwok.androidkotlinboilerplate.viewmodels.MainActivityViewModel
 
-class MainActivity : DaggerAppCompatActivity() {
-
-    private var buttonClickMe: AppCompatButton? = null;
+class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main);
-
-        bindViewComponents();
-        subscribeToViewComponents();
-    }
-
-    private fun bindViewComponents() {
-        buttonClickMe = findViewById(R.id.button_click_me);
-    }
-
-    private fun subscribeToViewComponents() {
-        buttonClickMe?.setOnClickListener {
-            Log.d("MainActivity", "Hello, World!");
-        };
+        setContentView(R.layout.activity_main)
     }
 
 }
