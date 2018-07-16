@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.AppCompatButton
 import android.support.v7.widget.AppCompatTextView
 import com.masterwok.androidkotlinboilerplate.R
+import com.masterwok.androidkotlinboilerplate.room.entities.User
 import com.masterwok.androidkotlinboilerplate.viewmodels.MainActivityViewModel
 
 class MainActivity : BaseActivity<MainActivityViewModel>() {
@@ -29,20 +30,18 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     private fun subscribeToViewComponents() {
         buttonClickMe?.setOnClickListener {
-            val currentCount = viewModel.getCurrentCount()
-
-            currentCount.value = currentCount.value?.plus(1)
+            viewModel.insertUser()
         }
     }
 
     private fun subscribeToLiveData() {
         viewModel
-                .getCurrentCount()
+                .getAllUsers()
                 .observe(this, Observer { t -> configure(t) })
     }
 
-    private fun configure(count: Int?) {
-        textViewCount?.text = count?.toString()
+    private fun configure(users: List<User>?) {
+        textViewCount?.text = (users?.count() ?: 0).toString()
     }
 
 }

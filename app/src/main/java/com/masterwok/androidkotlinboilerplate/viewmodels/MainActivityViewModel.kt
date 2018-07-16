@@ -1,20 +1,22 @@
 package com.masterwok.androidkotlinboilerplate.viewmodels
 
-import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.masterwok.androidkotlinboilerplate.contracts.UserRepository
+import com.masterwok.androidkotlinboilerplate.room.entities.User
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor() : ViewModel() {
+class MainActivityViewModel @Inject constructor(
+        private var userRepository: UserRepository
+) : ViewModel() {
 
-    private var currentCount: MutableLiveData<Int> = MutableLiveData()
-
-    fun getCurrentCount(): MutableLiveData<Int> {
-        if (currentCount.value == null) {
-            currentCount.value = 0
-        }
-
-        return currentCount
+    fun insertUser() {
+        userRepository.insertUser(User(
+                id = null,
+                firstName = "Jonathan",
+                lastName = "Trowbridge"
+        ))
     }
 
+    fun getAllUsers() = userRepository.getAllUsers()
 
 }
